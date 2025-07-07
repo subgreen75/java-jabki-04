@@ -6,12 +6,12 @@ class MainTest {
 
     @Test
     void spaceR() {
-        Assertions.assertEquals("1  ",Main.spaceR(1,3));
+        Assertions.assertEquals("1  ",Main.space(1,3,'R'));
     }
 
     @Test
     void spaceL() {
-        Assertions.assertEquals("  1",Main.spaceL(1,3));
+        Assertions.assertEquals("  1",Main.space(1,3,'L'));
     }
 
     @Test

@@ -118,38 +118,30 @@ public class Main {
     }
 
     /**
-     * аналог функции space в sql (добавляет пробелы) к числу справа
-     *
-     * @param n          число
-     * @param spaceCount - количество символов в результирующей строке (остаток от длины n добивается пробелом)
-     * @return строка с пробелами
-     */
-    static String spaceR(int n, int spaceCount) {
-        String strNumber = Integer.toString(n);
-        if (strNumber.length() >= spaceCount) {
-            return strNumber;
-        } else {
-            for (int i = strNumber.length(); i < spaceCount; i++) {
-                strNumber += " ";
-            }
-        }
-        return strNumber;
-    }
-
-    /**
      * аналог функции space в sql (добавляет пробелы) к числу слева
      *
      * @param n          число
      * @param spaceCount - количество символов в результирующей строке (остаток от длины n добивается пробелом)
+     * @param direct - показывает с какой стороны добавлять L - слева, R - справа
      * @return строка с пробелами
      */
-    static String spaceL(int n, int spaceCount) {
+    static String space(int n, int spaceCount, char direct) {
         String strNumber = Integer.toString(n);
         if (strNumber.length() >= spaceCount) {
             return strNumber;
         } else {
             for (int i = strNumber.length(); i < spaceCount; i++) {
-                strNumber = " " + strNumber;
+                switch (direct) {
+                    case 'L':
+                        strNumber = " " + strNumber;
+                        continue;
+                    case 'R':
+                        strNumber += " ";
+                        continue;
+                    default:
+                        strNumber = " " + strNumber;
+                        continue;
+                }
             }
         }
         return strNumber;
@@ -272,7 +264,7 @@ public class Main {
     static void printArray(int[] arr, int spaceElement) {
         String arrStr = "[";
         for (int i = 0; i < arr.length; i++) {
-            arrStr += spaceL(arr[i], spaceElement);
+            arrStr += space(arr[i], spaceElement,'L');
             if (i != arr.length - 1) {
                 arrStr += ",";
             } else {
@@ -320,7 +312,7 @@ public class Main {
         for (int i = 0; i < arr.length; i++) {
             arrStr = "";
             for (int j = 0; j < arr[i].length; j++) {
-                arrStr += spaceL(arr[i][j], spaceElement);
+                arrStr += space(arr[i][j], spaceElement,'L');
             }
             System.out.println(arrStr);
         }
@@ -390,7 +382,9 @@ public class Main {
     static int getMin(int[] arr) {
         int min = arr[0];
         for (int i = 1; i < arr.length; i++) {
-            min = arr[i] < min ? arr[i] : min;
+            if (arr[i] < min) {
+                min = arr[i];
+            }
         }
         return min;
     }
@@ -406,7 +400,9 @@ public class Main {
         int minLine = arr[0][0];
         for (int i = 0; i < arr.length; i++) {
             minLine = getMin(arr[i]);
-            minAll = minLine < minAll ? minLine : minAll;
+            if (minLine < minAll) {
+                minAll = minLine;
+            }
         }
         return minAll;
     }
@@ -420,7 +416,9 @@ public class Main {
     static int getMax(int[] arr) {
         int max = arr[0];
         for (int i = 1; i < arr.length; i++) {
-            max = arr[i] > max ? arr[i] : max;
+            if (arr[i] > max) {
+                max = arr[i];
+            }
         }
         return max;
     }
@@ -436,7 +434,9 @@ public class Main {
         int maxLine = arr[0][0];
         for (int i = 0; i < arr.length; i++) {
             maxLine = getMax(arr[i]);
-            maxAll = maxLine > maxAll ? maxLine : maxAll;
+            if (maxLine > maxAll) {
+                maxAll = maxLine;
+            }
         }
         return maxAll;
     }
