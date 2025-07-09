@@ -293,7 +293,7 @@ public class Main {
         String arrStr = "[";
         for (int i = 0; i < arr.length; i++) {
             // сравним символы(upper) элемента c startSymbols(upper). если true добавляем к arrStr
-            if (arr[i].substring(0, startSymbols.length()).toUpperCase().equals(startSymbols.toUpperCase())) {
+            if (arr[i].toUpperCase().startsWith(startSymbols.toUpperCase())) {
                 arrStr += (arrStr.length() == 1 ? "" : ",") + arr[i];
             }
         }
@@ -507,10 +507,11 @@ public class Main {
      * @return Массив с замененными элементами
      */
     static int[] replaceNegativeValuesArray(int[] arr) {
-        int[] arrReplaced = new int[arr.length];
         for (int i = 0; i < arr.length; i++) {
-            arrReplaced[i] = Math.abs(arr[i]);
+            if (arr[i] < 0) {
+                arr[i] = Math.abs(arr[i]);
+            }
         }
-        return arrReplaced;
+        return arr;
     }
 }

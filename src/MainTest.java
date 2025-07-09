@@ -1,22 +1,23 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 class MainTest {
 
     @Test
     void spaceR() {
-        Assertions.assertEquals("1  ",Main.space(1,3,'R'));
+        Assertions.assertEquals("1  ", Main.space(1, 3, 'R'));
     }
 
     @Test
     void spaceL() {
-        Assertions.assertEquals("  1",Main.space(1,3,'L'));
+        Assertions.assertEquals("  1", Main.space(1, 3, 'L'));
     }
 
     @Test
     void getMonthName() {
-        Assertions.assertEquals("Январь",Main.getMonthName(1));
+        Assertions.assertEquals("Январь", Main.getMonthName(1));
     }
 
     @Test
@@ -24,7 +25,7 @@ class MainTest {
         int[] arr = new int[2];
         arr[0] = 1;
         arr[1] = 2;
-        Assertions.assertEquals(3,Main.getSum(arr));
+        Assertions.assertEquals(3, Main.getSum(arr));
     }
 
     @Test
@@ -34,7 +35,7 @@ class MainTest {
         arr[0][1] = 2;
         arr[1][0] = 3;
         arr[1][1] = 4;
-        Assertions.assertEquals(10,Main.getSum(arr));
+        Assertions.assertEquals(10, Main.getSum(arr));
     }
 
     @Test
@@ -42,7 +43,7 @@ class MainTest {
         int[] arr = new int[2];
         arr[0] = 1;
         arr[1] = -2;
-        Assertions.assertEquals(-2,Main.getMin(arr));
+        Assertions.assertEquals(-2, Main.getMin(arr));
     }
 
     @Test
@@ -52,7 +53,7 @@ class MainTest {
         arr[0][1] = 2;
         arr[1][0] = -3;
         arr[1][1] = 4;
-        Assertions.assertEquals(-3,Main.getMin(arr));
+        Assertions.assertEquals(-3, Main.getMin(arr));
     }
 
     @Test
@@ -60,7 +61,7 @@ class MainTest {
         int[] arr = new int[2];
         arr[0] = 1;
         arr[1] = -2;
-        Assertions.assertEquals(1,Main.getMax(arr));
+        Assertions.assertEquals(1, Main.getMax(arr));
     }
 
     @Test
@@ -70,7 +71,7 @@ class MainTest {
         arr[0][1] = 2;
         arr[1][0] = -3;
         arr[1][1] = 4;
-        Assertions.assertEquals(4,Main.getMax(arr));
+        Assertions.assertEquals(4, Main.getMax(arr));
     }
 
     @Test
@@ -83,13 +84,13 @@ class MainTest {
     @Test
     void countRepeatingElements() {
         int[] actual = {1, 2, 3, 4, 2, 1};
-        Assertions.assertEquals(4,Main.countRepeatingElements(actual));
+        Assertions.assertEquals(4, Main.countRepeatingElements(actual));
     }
 
     @Test
     void getIndexesRepeatingElements() {
         int[] actual = {1, 2, 3, 4, 2, 1};
-        Assertions.assertEquals("[0,1,4,5]",Main.getIndexesRepeatingElements(actual));
+        Assertions.assertEquals("[0,1,4,5]", Main.getIndexesRepeatingElements(actual));
     }
 
     @Test
