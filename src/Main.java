@@ -97,7 +97,8 @@ public class Main {
 
         System.out.println("4. Реализуйте проверку, является ли двумерный массив квадратным (количество строк = количеству столбцов)");
         int[][] arrTask2_4 = new int[3][3];
-        System.out.println(arrTask2_4.length == arrTask2_4[0].length ? "Массив квадратный" : "Массив не квадратный");
+        printArray(arrTask2_4,3);
+        System.out.println(checkArrIsSqueare(arrTask2_4) ? "Массив квадратный" : "Массив не квадратный");
 
         System.out.println("5. Напишите метод, который находит сумму элементов каждой строки, минимальное и максимальное значение двумерного массива и выводит результаты");
         int[][] arrTask2_5 = getRandomTwoDimArray(3, -2, 7);
@@ -513,5 +514,14 @@ public class Main {
             }
         }
         return arr;
+    }
+
+    /**
+     * проверяет , является ли двумерный массив квадратным
+     * Params: arr – Одномерный массив
+     * Returns: true - массив квадратный, false - не квадратный
+     */
+    static boolean checkArrIsSqueare(int[][] arr) {
+        return arr.length == arr[0].length;
     }
 }
